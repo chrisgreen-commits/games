@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid=Main"]
+
+[ext_resource type="Script" path="res://scripts/GameManager.gd"]
+[ext_resource type="Script" path="res://scripts/InventoryManager.gd"]
+[ext_resource type="Script" path="res://scripts/DialogueSystem.gd"]
+[ext_resource type="PackedScene" path="res://scenes/Room1.tscn" uid="uid=Room1"]
+
+[node name="Main" type="Node"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("res://scripts/GameManager.gd")
+
+[node name="InventoryManager" type="Node" parent="."]
+script = ExtResource("res://scripts/InventoryManager.gd")
+
+[node name="DialogueSystem" type="Node" parent="."]
+script = ExtResource("res://scripts/DialogueSystem.gd")
+
+[node name="Room1" parent="." instance=ExtResource("res://scenes/Room1.tscn")]

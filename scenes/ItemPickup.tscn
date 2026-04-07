@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid=ItemPickup"]
+
+[ext_resource type="Script" path="res://scripts/ItemPickup.gd"]
+[ext_resource type="Texture2D" path="res://assets/sprites/coffee_bean.png"]
+
+[node name="ItemPickup" type="Area2D"]
+script = ExtResource("res://scripts/ItemPickup.gd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("res://assets/sprites/coffee_bean.png")
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = CircleShape2D.new()
+radius = 16.0

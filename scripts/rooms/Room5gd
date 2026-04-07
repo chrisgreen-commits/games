@@ -1,0 +1,23 @@
+extends Node2D
+
+class_name Room5
+
+@onready var game_manager = get_node("/root/Main/GameManager")
+@onready var dialogue_system = get_node("/root/Main/DialogueSystem")
+
+func _ready():
+	setup_ending_dialogue()
+
+func setup_ending_dialogue():
+	if dialogue_system:
+		var dialogues = [
+			{"character": "Kidnapper", "text": "Welcome, Winter. This was all a test to prove your investigative skills."},
+			{"character": "Kidnapper", "text": "We've tried world renowned detectives, but none succeeded until now."},
+			{"character": "Kidnapper", "text": "We want you to help us find the real Excalibur in Avalon. Are you up for the challenge?"},
+			{"character": "Winter", "text": "Your methods are extreme, but I can't deny my curiosity."},
+			{"character": "Kidnapper", "text": "Excellent! Let's find Avalon!"},
+			{"character": "Narrator", "text": "TO BE CONTINUED..."}
+		]
+		
+		for dialogue in dialogues:
+			dialogue_system.queue_dialogue(dialogue.character, dialogue.text, 4.0)

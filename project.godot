@@ -1,0 +1,7 @@
+[project]
+name="Shadows & Daylight: Excalibur's Labyrinth"
+version="0.1"
+
+[application]
+config/name="Game"
+config/run/main_scene="res://scenes/Main.tscn"

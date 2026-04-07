@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid=Door"]
+
+[ext_resource type="Script" path="res://scripts/Door.gd"]
+
+[node name="Door" type="Area2D"]
+script = ExtResource("res://scripts/Door.gd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = RectangleShape2D.new()
+size = Vector2(64, 128)

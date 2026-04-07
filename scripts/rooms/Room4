@@ -1,0 +1,44 @@
+extends Node2D
+
+class_name Room4
+
+@onready var game_manager = get_node("/root/Main/GameManager")
+@onready var dialogue_system = get_node("/root/Main/DialogueSystem")
+@onready var player = $Player
+
+var ninjas_defeated: int = 0
+var total_ninjas: int = Constants.TOTAL_NINJAS_ROOM4
+var combat_active: bool = false
+
+func _ready():
+	if dialogue_system:
+		dialogue_system.queue_dialogue("Winter", "Oh no, it looks like there's ninjas in here. I need a weapon!")
+	
+	spawn_ninjas()
+
+func spawn_ninjas():
+	var ninja_scene = preload("res://scenes/Ninja.tscn")
+	
+	for i in range(total_ninjas):
+		var ninja = ninja_scene.instantiate()
+		ninja.position = Vector2(
+			randi() % int(get_viewport().get_visible_rect().size.x),
+			randi() % int(get_viewport().get_visible_rect().size.y)
+		)
+		ninja.room = self
+		add_child(ninja)
+
+func ninja_defeated():
+	ninjas_defeated += 1
+	if ninjas_defeated >= total_ninjas:
+		all_ninjas_defeated()
+
+func all_ninjas_defeated():
+	if dialogue_system:
+		dialogue_system.queue_dialogue("Winter", "That was crazy! I wonder where this exit leads?")
+	
+	# Spawn exit door
+	var exit_door = preload("res://scenes/Door.tscn").instantiate()
+	exit_door.position = Vector2(960, 200)
+	exit_door.target_room = "Room5"
+	add_child(exit_door)

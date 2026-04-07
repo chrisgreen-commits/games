@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid=Ninja"]
+
+[ext_resource type="Script" path="res://scripts/Ninja.gd"]
+
+[node name="Ninja" type="CharacterBody2D"]
+script = ExtResource("res://scripts/Ninja.gd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = RectangleShape2D.new()
+size = Vector2(32, 64)
